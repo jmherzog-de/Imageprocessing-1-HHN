@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageProcessing1_WS20", "ImageProcessing1_WS20.vcxproj", "{113CD12D-53E4-4BB1-9E01-C3FD38573AAF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Histogram", "..\Histogram\Histogram.vcxproj", "{50667E2D-40A8-43E1-BA53-C97E6551C8C2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PointOperator", "..\PointOperator\PointOperator.vcxproj", "{522EE1A9-29E3-463A-8A6B-549E7A1F8219}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +25,18 @@ Global
 		{113CD12D-53E4-4BB1-9E01-C3FD38573AAF}.Release|x64.Build.0 = Release|x64
 		{113CD12D-53E4-4BB1-9E01-C3FD38573AAF}.Release|x86.ActiveCfg = Release|Win32
 		{113CD12D-53E4-4BB1-9E01-C3FD38573AAF}.Release|x86.Build.0 = Release|Win32
+		{50667E2D-40A8-43E1-BA53-C97E6551C8C2}.Debug|x64.ActiveCfg = Debug|x64
+		{50667E2D-40A8-43E1-BA53-C97E6551C8C2}.Debug|x64.Build.0 = Debug|x64
+		{50667E2D-40A8-43E1-BA53-C97E6551C8C2}.Debug|x86.ActiveCfg = Debug|x64
+		{50667E2D-40A8-43E1-BA53-C97E6551C8C2}.Release|x64.ActiveCfg = Release|x64
+		{50667E2D-40A8-43E1-BA53-C97E6551C8C2}.Release|x64.Build.0 = Release|x64
+		{50667E2D-40A8-43E1-BA53-C97E6551C8C2}.Release|x86.ActiveCfg = Release|x64
+		{522EE1A9-29E3-463A-8A6B-549E7A1F8219}.Debug|x64.ActiveCfg = Debug|x64
+		{522EE1A9-29E3-463A-8A6B-549E7A1F8219}.Debug|x64.Build.0 = Debug|x64
+		{522EE1A9-29E3-463A-8A6B-549E7A1F8219}.Debug|x86.ActiveCfg = Debug|x64
+		{522EE1A9-29E3-463A-8A6B-549E7A1F8219}.Release|x64.ActiveCfg = Release|x64
+		{522EE1A9-29E3-463A-8A6B-549E7A1F8219}.Release|x64.Build.0 = Release|x64
+		{522EE1A9-29E3-463A-8A6B-549E7A1F8219}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
