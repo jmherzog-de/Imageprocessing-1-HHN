@@ -14,6 +14,6 @@ void calcSigmaOfPixels(cv::Mat &image, float &sigmaR, float &sigmaG, float &sigm
 
 void changePointParameters(cv::Mat& image, float c0, int8_t cr, int8_t cg, int8_t cb);
 
-void LightningSimulation(cv::Mat& templateImage);
+std::vector<double> calcCumSum(cv::Mat& image);
 
 #endif

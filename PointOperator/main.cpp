@@ -2,6 +2,9 @@
 
 #include "pointoperator.hpp"
 
+#define CVPLOT_HEADER_ONLY
+#include <CvPlot/cvplot.h>
+
 using namespace cv;
 using namespace std;
 
@@ -107,6 +110,55 @@ void LightninSimulation(Mat& templateImage)
 	imshow("Inverse picture", inverseImage);
 }
 
+void Autoscaling(Mat& image)
+{
+	uchar a = 54;
+	uchar b = 100;
+
+	// convert to image to grayscale
+	Mat grayImage;
+	cvtColor(image, grayImage, COLOR_BGR2GRAY);
+	
+	// display histogram
+	vector<int> histogramGrayImage = calcHistogram(grayImage);
+	auto axes1 = CvPlot::plot(histogramGrayImage);
+	Mat outputHist = axes1.render(400, 400);
+	imshow("Hist", outputHist);
+
+	vector<double> cumsum = calcCumSum(grayImage);
+
+	auto axes = CvPlot::plot(cumsum,"-0");
+	Mat matOutput = axes.render(400, 400);
+	imshow("CumSum", matOutput);
+
+	for (int j = 0; j < grayImage.rows; j++)
+	{
+		for (int i = 0; i < grayImage.cols; i++)
+		{
+			uchar e = grayImage.at<uchar>(j, i);
+			if (e < a) {
+				grayImage.at<uchar>(j, i) = 0;
+			}
+			else if (e <= b)
+			{
+				grayImage.at<uchar>(j, i) *= 255 / (255 - a - b);
+			}
+			else {
+				grayImage.at<uchar>(j, i) = 255;
+			}
+		}
+	}
+
+	imshow("Gray Autoscaled", grayImage);
+
+	// Display new hist
+	histogramGrayImage = calcHistogram(grayImage);
+	axes1 = CvPlot::plot(histogramGrayImage);
+	outputHist = axes1.render(400, 400);
+	imshow("Autoscaled Hist", outputHist);
+
+}
+
 int main()
 {
 	Mat templateImage = imread("optic.bmp", IMREAD_COLOR);
@@ -123,7 +175,8 @@ int main()
 		return -1;
 	}
 
-	LightninSimulation(templateImage);
+	//LightninSimulation(templateImage);
+	Autoscaling(templateImage);
 
 	waitKey(0);
 

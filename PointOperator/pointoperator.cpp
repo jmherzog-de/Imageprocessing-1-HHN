@@ -91,3 +91,20 @@ void changePointParameters(Mat& image, float c0, int8_t cr, int8_t cg, int8_t cb
 		}
 	}
 }
+
+std::vector<double> calcCumSum(Mat& image)
+{
+	std::vector<double> p(256);
+
+	vector<int> histogram = calcHistogram(image);
+	unsigned sumOfPixels = (unsigned)image.total();
+
+	double sum = 0;
+	for (int i = 0; i < 256; i++)
+	{
+		sum += histogram[i] / (double)sumOfPixels;
+		p[i] = sum;
+	}
+
+	return p;
+}
